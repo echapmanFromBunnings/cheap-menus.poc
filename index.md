@@ -33,12 +33,9 @@ title: "The Gelato & Icecream Factory - Welcome"
     max-width: 250px;
     width: 90%;
     height: auto;
-    mix-blend-mode: multiply;
   }
   
   .container {
-    max-width: 1600px;
-    margin: 0 auto;
     background: #FFF5E6;
     padding: 50px;
     text-align: center;
