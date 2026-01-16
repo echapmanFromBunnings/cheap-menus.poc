@@ -1,115 +1,109 @@
 ---
 layout: default
-title: "Groovy Scoops - Welcome to the Coolest Ice Cream Parlor"
+title: "The Gelato & Icecream Factory - Welcome"
 ---
 
 <style>
   body {
-    background: linear-gradient(135deg, #FF1493 0%, #00CED1 25%, #FFD700 50%, #9370DB 75%, #FF69B4 100%);
-    background-size: 400% 400%;
-    animation: groovyGradient 15s ease infinite;
+    background: repeating-linear-gradient(
+      0deg,
+      #FFE8E8,
+      #FFE8E8 20px,
+      #FFD5D5 20px,
+      #FFD5D5 40px
+    );
     font-family: 'Courier New', monospace;
-    color: #2C1810;
+    color: #4A1F1F;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     min-height: 100vh;
   }
   
-  @keyframes groovyGradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  .logo-header {
+    text-align: center;
+    padding: 30px 0 20px 0;
+    background: #FFF5E6;
+    border-bottom: 3px solid #4A1F1F;
+  }
+  
+  .logo-header img {
+    max-width: 400px;
+    width: 90%;
+    height: auto;
   }
   
   .container {
     max-width: 1000px;
     margin: 0 auto;
     background: #FFF5E6;
-    border: 10px solid #FF1493;
-    border-radius: 40px;
-    padding: 50px;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+    padding: 30px;
     text-align: center;
   }
   
-  h1 {
-    font-size: 4.5em;
-    color: #FF1493;
-    text-shadow: 4px 4px 0px #00CED1, 8px 8px 0px #FFD700, 12px 12px 0px #9370DB;
-    margin-bottom: 20px;
-    font-family: 'Impact', fantasy;
-    letter-spacing: 5px;
-    animation: float 3s ease-in-out infinite;
-  }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-  }
-  
   .tagline {
-    font-size: 2em;
-    color: #00CED1;
-    margin-bottom: 30px;
+    font-size: 1.8em;
+    color: #C85A7A;
+    margin: 20px 0 30px 0;
     font-style: italic;
-    text-shadow: 2px 2px 0px #FFD700;
+    text-shadow: 1px 1px 0px #D4A574;
   }
   
   .welcome-text {
-    font-size: 1.4em;
-    line-height: 1.8;
-    margin: 30px 0;
-    color: #2C1810;
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 30px auto;
+    max-width: 800px;
+    color: #4A1F1F;
     padding: 20px;
     background: rgba(255, 255, 255, 0.7);
     border-radius: 15px;
-    border: 3px dashed #00CED1;
+    border: 3px solid #C85A7A;
   }
   
   .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin: 30px 0;
+  }
+  
+  .feature-box {
+    background: white;
+    border: 3px solid #D4A574;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 3px 3px 0px #C85A7A;
+    transition: transform 0.3s ease;
+  }
+  
+  .feature-box:hover {
+    transform: scale(1.05) rotate(1deg);
+  }
+  
+  .feature-icon {
+    font-size: 2.5em;
+    margin-bottom: 8px;
+  }
+  
+  .feature-text {
+    font-size: 1.1em;
+    color: #4A1F1F;
+    font-weight: bold;
+  }
+  
+  .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     margin: 40px 0;
   }
   
-  .feature-box {
-    background: white;
-    border: 4px solid #FFD700;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 5px 5px 0px #FF69B4;
-    transition: transform 0.3s ease;
-  }
-  
-  .feature-box:hover {
-    transform: scale(1.1) rotate(2deg);
-  }
-  
-  .feature-icon {
-    font-size: 3em;
-    margin-bottom: 10px;
-  }
-  
-  .feature-text {
-    font-size: 1.2em;
-    color: #9370DB;
-    font-weight: bold;
-  }
-  
-  .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    margin: 50px 0;
-  }
-  
   .menu-card {
     background: white;
-    border: 5px solid #00CED1;
-    border-radius: 20px;
-    padding: 30px 20px;
-    box-shadow: 10px 10px 0px #9370DB;
+    border: 4px solid #C85A7A;
+    border-radius: 15px;
+    padding: 25px 15px;
+    box-shadow: 5px 5px 0px #D4A574;
     transition: all 0.3s ease;
     cursor: pointer;
     text-decoration: none;
@@ -117,93 +111,81 @@ title: "Groovy Scoops - Welcome to the Coolest Ice Cream Parlor"
   }
   
   .menu-card:hover {
-    transform: scale(1.15) rotate(-3deg);
-    box-shadow: 15px 15px 0px #FF1493;
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 8px 8px 0px #4A1F1F;
   }
   
   .menu-number {
-    font-size: 4em;
-    color: #FFD700;
+    font-size: 3.5em;
+    color: #D4A574;
     font-weight: bold;
-    text-shadow: 3px 3px 0px #FF1493;
+    text-shadow: 2px 2px 0px #C85A7A;
     margin-bottom: 10px;
   }
   
   .menu-title {
-    font-size: 1.3em;
-    color: #00CED1;
+    font-size: 1.2em;
+    color: #4A1F1F;
     font-weight: bold;
     margin-bottom: 10px;
   }
   
   .menu-description {
-    font-size: 0.95em;
-    color: #2C1810;
+    font-size: 0.9em;
+    color: #4A1F1F;
     line-height: 1.4;
   }
   
   .cta-button {
     display: inline-block;
-    background: linear-gradient(45deg, #FF1493, #FFD700);
+    background: linear-gradient(45deg, #C85A7A, #D4A574);
     color: white;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: bold;
-    padding: 20px 40px;
+    padding: 15px 35px;
     border-radius: 50px;
     text-decoration: none;
-    margin: 30px 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin: 25px 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    border: 4px solid #00CED1;
+    border: 3px solid #4A1F1F;
   }
   
   .cta-button:hover {
-    transform: scale(1.1) rotate(-2deg);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-  }
-  
-  .disco-ball {
-    font-size: 5em;
-    animation: spin 4s linear infinite;
-    display: inline-block;
-    margin: 20px;
-  }
-  
-  @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
   }
   
   .footer {
-    margin-top: 50px;
-    padding-top: 30px;
-    border-top: 4px dashed #FF1493;
-    font-size: 1.1em;
-    color: #9370DB;
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 3px solid #C85A7A;
+    font-size: 1em;
+    color: #4A1F1F;
     font-style: italic;
   }
 </style>
 
+<div class="logo-header">
+  <img src="https://github.com/user-attachments/assets/61e8658d-5432-46f9-8626-2b8fa060fdf0" alt="The Gelato & Icecream Factory">
+</div>
+
 <div class="container">
-  <div class="disco-ball">✨</div>
-  
-  <h1>🍦 GROOVY SCOOPS 🍦</h1>
-  
   <p class="tagline">The Far-Out Ice Cream Experience!</p>
   
   <div class="welcome-text">
-    <strong>Welcome, cool cats and groovy kittens!</strong><br>
-    Step into our psychedelic parlor where every scoop is a trip down memory lane and every flavor is totally outta sight! We're serving up the wildest, most far-out ice cream creations this side of the Summer of Love. Peace, love, and ice cream, baby! ✌️
+    <strong>Welcome to The Gelato & Icecream Factory!</strong><br>
+    Step into our nostalgic parlor where every scoop is a journey back in time and every flavor is crafted with vintage charm! We're serving up the finest ice cream creations with that classic retro touch. ✨
   </div>
   
   <div class="features">
     <div class="feature-box">
-      <div class="feature-icon">🌈</div>
-      <div class="feature-text">20 Wild Flavors</div>
+      <div class="feature-icon">🍦</div>
+      <div class="feature-text">20 Classic Flavors</div>
     </div>
     <div class="feature-box">
       <div class="feature-icon">🎨</div>
-      <div class="feature-text">Retro Vibes</div>
+      <div class="feature-text">Retro Charm</div>
     </div>
     <div class="feature-box">
       <div class="feature-icon">💎</div>
@@ -211,59 +193,57 @@ title: "Groovy Scoops - Welcome to the Coolest Ice Cream Parlor"
     </div>
     <div class="feature-box">
       <div class="feature-icon">🎪</div>
-      <div class="feature-text">Groovy Experience</div>
+      <div class="feature-text">Vintage Experience</div>
     </div>
   </div>
   
-  <h2 style="font-size: 2.5em; color: #FF1493; margin: 40px 0 30px 0; text-shadow: 2px 2px 0px #00CED1;">
-    🎯 EXPLORE OUR MENU 🎯
+  <h2 style="font-size: 2em; color: #4A1F1F; margin: 30px 0 25px 0; text-shadow: 1px 1px 0px #D4A574;">
+    🍨 EXPLORE OUR MENU 🍨
   </h2>
   
   <div class="menu-grid">
     <a href="1.html" class="menu-card">
       <div class="menu-number">1</div>
-      <div class="menu-title">Classic Retro Flavors</div>
+      <div class="menu-title">Classic Flavors</div>
       <div class="menu-description">
-        Cosmic Bubblegum, Disco Inferno, Purple Haze & more far-out creations!
+        Traditional favorites and timeless treats!
       </div>
     </a>
     
     <a href="2.html" class="menu-card">
       <div class="menu-number">2</div>
-      <div class="menu-title">Totally Radical Flavors</div>
+      <div class="menu-title">Premium Selections</div>
       <div class="menu-description">
-        Tiki Paradise, Cotton Candy Chaos, Groovy Matcha & other boss treats!
+        Upscale flavors for discerning tastes!
       </div>
     </a>
     
     <a href="3.html" class="menu-card">
       <div class="menu-number">3</div>
-      <div class="menu-title">Outta Sight Flavors</div>
+      <div class="menu-title">Specialty Creations</div>
       <div class="menu-description">
-        Rose Garden Romance, Tie-Dye Berry, Earl Grey Explosion & more!
+        Unique and creative combinations!
       </div>
     </a>
     
     <a href="4.html" class="menu-card">
       <div class="menu-number">4</div>
-      <div class="menu-title">Ultimate Far Out Flavors</div>
+      <div class="menu-title">Ultimate Indulgences</div>
       <div class="menu-description">
-        Pretzel Crunch, Midnight Velvet, Birthday Cake Spectacular & beyond!
+        Decadent and extraordinary flavors!
       </div>
     </a>
   </div>
   
-  <div style="margin: 50px 0;">
+  <div style="margin: 40px 0;">
     <a href="1.html" class="cta-button">🌟 START YOUR FLAVOR JOURNEY 🌟</a>
   </div>
   
   <div class="footer">
     <p>
-      <strong>Hours:</strong> Open every groovy day from dawn till disco! 🌅🕺<br>
-      <strong>Location:</strong> Where the good vibes are, man! 🚐💫<br>
-      <strong>Motto:</strong> "Keep on scooping in the free world!" ✌️🍦
+      <strong>Hours:</strong> Open every day for your sweet tooth! 🌅<br>
+      <strong>Location:</strong> Where memories are made! 📍<br>
+      <strong>Motto:</strong> "Scooping happiness since forever!" 🍦
     </p>
   </div>
-  
-  <div class="disco-ball">🪩</div>
 </div>
