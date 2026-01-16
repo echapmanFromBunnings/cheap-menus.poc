@@ -28,9 +28,12 @@ title: "The Gelato & Icecream Factory - Welcome"
   }
   
   .logo-header img {
+    display: block;
+    margin: 0 auto;
     max-width: 600px;
     width: 90%;
     height: auto;
+    mix-blend-mode: multiply;
   }
   
   .container {
