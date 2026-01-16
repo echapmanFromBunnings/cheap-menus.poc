@@ -22,8 +22,7 @@ title: "The Gelato & Icecream Factory - Welcome"
   
   .logo-header {
     text-align: center;
-    padding: 40px 0 30px 0;
-    background: #FFF5E6;
+    padding: 40px 50px 30px 50px;
     border-bottom: 5px solid #4A1F1F;
   }
   
