@@ -17,62 +17,63 @@ title: "The Gelato & Icecream Factory - Welcome"
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    font-size: 20px;
   }
   
   .logo-header {
     text-align: center;
-    padding: 30px 0 20px 0;
+    padding: 40px 0 30px 0;
     background: #FFF5E6;
-    border-bottom: 3px solid #4A1F1F;
+    border-bottom: 5px solid #4A1F1F;
   }
   
   .logo-header img {
-    max-width: 400px;
+    max-width: 600px;
     width: 90%;
     height: auto;
   }
   
   .container {
-    max-width: 1000px;
+    max-width: 1600px;
     margin: 0 auto;
     background: #FFF5E6;
-    padding: 30px;
+    padding: 50px;
     text-align: center;
   }
   
   .tagline {
-    font-size: 1.8em;
+    font-size: 3em;
     color: #C85A7A;
-    margin: 20px 0 30px 0;
+    margin: 30px 0 40px 0;
     font-style: italic;
-    text-shadow: 1px 1px 0px #D4A574;
+    text-shadow: 2px 2px 0px #D4A574;
   }
   
   .welcome-text {
-    font-size: 1.2em;
+    font-size: 1.8em;
     line-height: 1.6;
-    margin: 30px auto;
-    max-width: 800px;
+    margin: 40px auto;
+    max-width: 1200px;
     color: #4A1F1F;
-    padding: 20px;
+    padding: 30px;
     background: rgba(255, 255, 255, 0.7);
-    border-radius: 15px;
-    border: 3px solid #C85A7A;
+    border-radius: 20px;
+    border: 5px solid #C85A7A;
   }
   
   .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-    margin: 30px 0;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
   }
   
   .feature-box {
     background: white;
-    border: 3px solid #D4A574;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 3px 3px 0px #C85A7A;
+    border: 5px solid #D4A574;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 5px 5px 0px #C85A7A;
     transition: transform 0.3s ease;
   }
   
@@ -81,29 +82,29 @@ title: "The Gelato & Icecream Factory - Welcome"
   }
   
   .feature-icon {
-    font-size: 2.5em;
-    margin-bottom: 8px;
+    font-size: 4em;
+    margin-bottom: 15px;
   }
   
   .feature-text {
-    font-size: 1.1em;
+    font-size: 1.6em;
     color: #4A1F1F;
     font-weight: bold;
   }
   
   .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin: 40px 0;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    margin: 50px 0;
   }
   
   .menu-card {
     background: white;
-    border: 4px solid #C85A7A;
-    border-radius: 15px;
-    padding: 25px 15px;
-    box-shadow: 5px 5px 0px #D4A574;
+    border: 6px solid #C85A7A;
+    border-radius: 20px;
+    padding: 40px 25px;
+    box-shadow: 8px 8px 0px #D4A574;
     transition: all 0.3s ease;
     cursor: pointer;
     text-decoration: none;
@@ -111,56 +112,56 @@ title: "The Gelato & Icecream Factory - Welcome"
   }
   
   .menu-card:hover {
-    transform: scale(1.08) rotate(-2deg);
-    box-shadow: 8px 8px 0px #4A1F1F;
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 12px 12px 0px #4A1F1F;
   }
   
   .menu-number {
-    font-size: 3.5em;
+    font-size: 5em;
     color: #D4A574;
     font-weight: bold;
-    text-shadow: 2px 2px 0px #C85A7A;
-    margin-bottom: 10px;
+    text-shadow: 3px 3px 0px #C85A7A;
+    margin-bottom: 15px;
   }
   
   .menu-title {
-    font-size: 1.2em;
+    font-size: 2em;
     color: #4A1F1F;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
   
   .menu-description {
-    font-size: 0.9em;
+    font-size: 1.4em;
     color: #4A1F1F;
-    line-height: 1.4;
+    line-height: 1.5;
   }
   
   .cta-button {
     display: inline-block;
     background: linear-gradient(45deg, #C85A7A, #D4A574);
     color: white;
-    font-size: 1.3em;
+    font-size: 2em;
     font-weight: bold;
-    padding: 15px 35px;
-    border-radius: 50px;
+    padding: 25px 50px;
+    border-radius: 60px;
     text-decoration: none;
-    margin: 25px 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    margin: 35px 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    border: 3px solid #4A1F1F;
+    border: 5px solid #4A1F1F;
   }
   
   .cta-button:hover {
     transform: scale(1.05) rotate(-1deg);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   }
   
   .footer {
-    margin-top: 40px;
-    padding-top: 25px;
-    border-top: 3px solid #C85A7A;
-    font-size: 1em;
+    margin-top: 50px;
+    padding-top: 35px;
+    border-top: 5px solid #C85A7A;
+    font-size: 1.4em;
     color: #4A1F1F;
     font-style: italic;
   }
@@ -197,7 +198,7 @@ title: "The Gelato & Icecream Factory - Welcome"
     </div>
   </div>
   
-  <h2 style="font-size: 2em; color: #4A1F1F; margin: 30px 0 25px 0; text-shadow: 1px 1px 0px #D4A574;">
+  <h2 style="font-size: 3.5em; color: #4A1F1F; margin: 40px 0 35px 0; text-shadow: 2px 2px 0px #D4A574;">
     🍨 EXPLORE OUR MENU 🍨
   </h2>
   
