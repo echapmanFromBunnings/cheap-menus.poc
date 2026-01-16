@@ -168,7 +168,7 @@ title: "The Gelato & Icecream Factory - Welcome"
 </style>
 
 <div class="logo-header">
-  <img src="https://github.com/user-attachments/assets/61e8658d-5432-46f9-8626-2b8fa060fdf0" alt="The Gelato & Icecream Factory">
+  <img src="logo.png" alt="The Gelato & Icecream Factory">
 </div>
 
 <div class="container">
