@@ -54,7 +54,7 @@ A demonstration of themed menu presentation using markdown with embedded HTML/CS
   ---
   ```
 - Emoji usage for visual interest (🍦 🍓 🍫 etc.)
-- Consistent naming: "flavour" instead of "flavor" in CSS classes
+- Consistent naming: "flavour" (British English) instead of "flavor" in CSS classes - this is an established convention in the existing codebase
 - Price format: `$X.XX` (always 2 decimal places)
 
 ### Navigation Standards
@@ -133,7 +133,7 @@ A demonstration of themed menu presentation using markdown with embedded HTML/CS
 <div class="flavour-card">
   <div class="flavour-name">🍦 Vanilla Bean Dream</div>
   <div class="flavour-image" style="background: linear-gradient(135deg, #FFF8DC, #FFFACD);">
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 50px; opacity: 0.3;">👨</div>
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 50px; opacity: 0.3;">🍦</div>
   </div>
   <div class="price">$6.50</div>
 </div>
