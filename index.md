@@ -169,7 +169,7 @@ title: "The Gelato & Icecream Factory - Welcome"
 </style>
 
 <div class="logo-header">
-  <img src="logo.png" alt="The Gelato & Icecream Factory">
+  <img src="{{ site.baseurl }}/logo.png" alt="The Gelato & Icecream Factory">
 </div>
 
 <div class="container">
@@ -204,7 +204,7 @@ title: "The Gelato & Icecream Factory - Welcome"
   </h2>
   
   <div class="menu-grid">
-    <a href="1.html" class="menu-card">
+    <a href="{{ site.baseurl }}/1.html" class="menu-card">
       <div class="menu-number">1</div>
       <div class="menu-title">Classic Flavors</div>
       <div class="menu-description">
@@ -212,7 +212,7 @@ title: "The Gelato & Icecream Factory - Welcome"
       </div>
     </a>
     
-    <a href="2.html" class="menu-card">
+    <a href="{{ site.baseurl }}/2.html" class="menu-card">
       <div class="menu-number">2</div>
       <div class="menu-title">Premium Selections</div>
       <div class="menu-description">
@@ -220,7 +220,7 @@ title: "The Gelato & Icecream Factory - Welcome"
       </div>
     </a>
     
-    <a href="3.html" class="menu-card">
+    <a href="{{ site.baseurl }}/3.html" class="menu-card">
       <div class="menu-number">3</div>
       <div class="menu-title">Specialty Creations</div>
       <div class="menu-description">
@@ -228,7 +228,7 @@ title: "The Gelato & Icecream Factory - Welcome"
       </div>
     </a>
     
-    <a href="4.html" class="menu-card">
+    <a href="{{ site.baseurl }}/4.html" class="menu-card">
       <div class="menu-number">4</div>
       <div class="menu-title">Ultimate Indulgences</div>
       <div class="menu-description">
@@ -238,7 +238,7 @@ title: "The Gelato & Icecream Factory - Welcome"
   </div>
   
   <div style="margin: 40px 0;">
-    <a href="1.html" class="cta-button">🌟 START YOUR FLAVOR JOURNEY 🌟</a>
+    <a href="{{ site.baseurl }}/1.html" class="cta-button">🌟 START YOUR FLAVOR JOURNEY 🌟</a>
   </div>
   
   <h2 style="font-size: 3.5em; color: #4A1F1F; margin: 50px 0 35px 0; text-shadow: 2px 2px 0px #D4A574;">
@@ -246,7 +246,7 @@ title: "The Gelato & Icecream Factory - Welcome"
   </h2>
   
   <div class="menu-grid">
-    <a href="5.html" class="menu-card">
+    <a href="{{ site.baseurl }}/5.html" class="menu-card">
       <div class="menu-number">5</div>
       <div class="menu-title">Menu Image 1</div>
       <div class="menu-description">
@@ -254,7 +254,7 @@ title: "The Gelato & Icecream Factory - Welcome"
       </div>
     </a>
     
-    <a href="6.html" class="menu-card">
+    <a href="{{ site.baseurl }}/6.html" class="menu-card">
       <div class="menu-number">6</div>
       <div class="menu-title">Menu Image 2</div>
       <div class="menu-description">
@@ -262,7 +262,7 @@ title: "The Gelato & Icecream Factory - Welcome"
       </div>
     </a>
     
-    <a href="7.html" class="menu-card">
+    <a href="{{ site.baseurl }}/7.html" class="menu-card">
       <div class="menu-number">7</div>
       <div class="menu-title">Menu Image 3</div>
       <div class="menu-description">
@@ -270,7 +270,7 @@ title: "The Gelato & Icecream Factory - Welcome"
       </div>
     </a>
     
-    <a href="8.html" class="menu-card">
+    <a href="{{ site.baseurl }}/8.html" class="menu-card">
       <div class="menu-number">8</div>
       <div class="menu-title">Menu Image 4</div>
       <div class="menu-description">
