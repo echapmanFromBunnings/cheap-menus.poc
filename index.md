@@ -241,6 +241,44 @@ title: "The Gelato & Icecream Factory - Welcome"
     <a href="1.html" class="cta-button">🌟 START YOUR FLAVOR JOURNEY 🌟</a>
   </div>
   
+  <h2 style="font-size: 3.5em; color: #4A1F1F; margin: 50px 0 35px 0; text-shadow: 2px 2px 0px #D4A574;">
+    📸 FULL MENU IMAGES 📸
+  </h2>
+  
+  <div class="menu-grid">
+    <a href="5.html" class="menu-card">
+      <div class="menu-number">5</div>
+      <div class="menu-title">Menu Image 1</div>
+      <div class="menu-description">
+        View our full menu in high resolution!
+      </div>
+    </a>
+    
+    <a href="6.html" class="menu-card">
+      <div class="menu-number">6</div>
+      <div class="menu-title">Menu Image 2</div>
+      <div class="menu-description">
+        Browse our complete offerings!
+      </div>
+    </a>
+    
+    <a href="7.html" class="menu-card">
+      <div class="menu-number">7</div>
+      <div class="menu-title">Menu Image 3</div>
+      <div class="menu-description">
+        Explore all our delicious options!
+      </div>
+    </a>
+    
+    <a href="8.html" class="menu-card">
+      <div class="menu-number">8</div>
+      <div class="menu-title">Menu Image 4</div>
+      <div class="menu-description">
+        See everything we have to offer!
+      </div>
+    </a>
+  </div>
+  
   <div class="footer">
     <p>
       <strong>Hours:</strong> Open every day for your sweet tooth! 🌅<br>
