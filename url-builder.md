@@ -282,6 +282,16 @@ title: "The Gelato & Icecream Factory - URL Builder"
     border: 4px solid #D4A574;
   }
   
+  .url-preview a {
+    color: #FFE8E8;
+    text-decoration: underline;
+  }
+  
+  .url-preview a:hover {
+    color: #FFD5D5;
+    text-decoration: underline;
+  }
+  
   .action-buttons {
     display: flex;
     gap: 20px;
@@ -496,6 +506,25 @@ title: "The Gelato & Icecream Factory - URL Builder"
     </div>
     
     <div class="form-group">
+      <label class="form-label">Image Fill Mode</label>
+      <p class="help-text">Set how images should fit within their containers</p>
+      <div class="checkbox-group">
+        <div class="checkbox-item">
+          <input type="radio" name="fillMode" id="fillContain" value="contain">
+          <label for="fillContain">📐 Contain (Fit - maintains aspect ratio)</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="radio" name="fillMode" id="fillCover" value="cover">
+          <label for="fillCover">🖼️ Cover (Fill - crops to fit)</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="radio" name="fillMode" id="fillFill" value="fill" checked>
+          <label for="fillFill">↔️ Fill (Stretch to fill)</label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
       <label class="form-label">Kiosk Mode</label>
       <p class="help-text">Hide all controls for a clean display (perfect for digital signage!)</p>
       <div class="toggle-switch">
@@ -579,6 +608,12 @@ title: "The Gelato & Icecream Factory - URL Builder"
     document.getElementById('rotate90'),
     document.getElementById('rotate180'),
     document.getElementById('rotate270')
+  ];
+  
+  const fillModeRadios = [
+    document.getElementById('fillContain'),
+    document.getElementById('fillCover'),
+    document.getElementById('fillFill')
   ];
   
   const kioskMode = document.getElementById('kioskMode');
@@ -680,6 +715,11 @@ title: "The Gelato & Icecream Factory - URL Builder"
     radio.addEventListener('change', updateUrl);
   });
   
+  // Update fill mode when radio changes
+  fillModeRadios.forEach(radio => {
+    radio.addEventListener('change', updateUrl);
+  });
+  
   // Update when slide selection changes
   includeCheckboxes.forEach(checkbox => {
     checkbox.addEventListener('change', updateControls);
@@ -692,6 +732,9 @@ title: "The Gelato & Icecream Factory - URL Builder"
     
     // Get rotation value
     const rotation = parseInt(document.querySelector('input[name="rotation"]:checked').value);
+    
+    // Get fill mode value
+    const fillMode = document.querySelector('input[name="fillMode"]:checked').value;
     
     // Build list of selected slides and their transition times
     const selectedSlides = [];
@@ -715,18 +758,27 @@ title: "The Gelato & Icecream Factory - URL Builder"
       url.searchParams.set('rotation', rotation.toString());
     }
     
+    // Add fill mode parameter (always include it for clarity)
+    url.searchParams.set('fill', fillMode);
+    
     if (kioskMode.checked) {
       url.searchParams.set('kiosk', 'true');
     }
     
-    // Display URL
-    urlPreview.textContent = url.toString();
-    openBtn.href = url.toString();
+    // Display URL as clickable link
+    const urlString = url.toString();
+    urlPreview.innerHTML = '';
+    const link = document.createElement('a');
+    link.href = urlString;
+    link.target = '_blank';
+    link.textContent = urlString;
+    urlPreview.appendChild(link);
+    openBtn.href = urlString;
   }
   
   // Copy to clipboard
   copyBtn.addEventListener('click', function() {
-    const url = urlPreview.textContent;
+    const url = urlPreview.querySelector('a') ? urlPreview.querySelector('a').textContent : urlPreview.textContent;
     
     // Copy to clipboard
     navigator.clipboard.writeText(url).then(function() {
