@@ -159,6 +159,13 @@ title: "The Gelato & Icecream Factory - URL Builder"
     padding: 20px;
     border: 3px solid #D4A574;
     border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+  
+  .timing-item.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+    background: #f0f0f0;
   }
   
   .timing-header {
@@ -376,10 +383,36 @@ title: "The Gelato & Icecream Factory - URL Builder"
   </p>
   
   <div class="builder-section">
+    <h2 class="section-header">📋 Select Slides</h2>
+    <div class="form-group">
+      <label class="form-label">Which slides should be included in the slideshow?</label>
+      <p class="help-text">Select one or more slides to include in your custom rotation</p>
+      <div class="checkbox-group">
+        <div class="checkbox-item">
+          <input type="checkbox" id="include5" value="5" checked>
+          <label for="include5">🖼️ Menu Image 1 (Page 5)</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="include6" value="6" checked>
+          <label for="include6">🖼️ Menu Image 2 (Page 6)</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="include7" value="7" checked>
+          <label for="include7">🖼️ Menu Image 3 (Page 7)</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="include8" value="8" checked>
+          <label for="include8">🖼️ Menu Image 4 (Page 8)</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="builder-section">
     <h2 class="section-header">⏱️ Timing Settings</h2>
     <div class="form-group">
       <label class="form-label">How long should each screen display? (in seconds)</label>
-      <p class="help-text">The slideshow rotates through all 4 menu images in order</p>
+      <p class="help-text">Set individual timing for each selected slide</p>
       <div class="timing-controls">
         <div class="timing-item" id="timing5">
           <div class="timing-header">🖼️ Menu Image 1</div>
@@ -478,6 +511,20 @@ title: "The Gelato & Icecream Factory - URL Builder"
   const baseUrl = window.location.origin + '{{ site.baseurl }}';
   
   // Get all form elements
+  const includeCheckboxes = [
+    document.getElementById('include5'),
+    document.getElementById('include6'),
+    document.getElementById('include7'),
+    document.getElementById('include8')
+  ];
+  
+  const timingItems = [
+    document.getElementById('timing5'),
+    document.getElementById('timing6'),
+    document.getElementById('timing7'),
+    document.getElementById('timing8')
+  ];
+  
   const delaySliders = [
     document.getElementById('delay5'),
     document.getElementById('delay6'),
@@ -506,6 +553,62 @@ title: "The Gelato & Icecream Factory - URL Builder"
   const openBtn = document.getElementById('openBtn');
   const copyFeedback = document.getElementById('copyFeedback');
   
+  // Update timing controls and start page options based on selection
+  function updateControls() {
+    const selectedSlides = [];
+    
+    includeCheckboxes.forEach((checkbox, index) => {
+      const slideNum = 5 + index;
+      const isChecked = checkbox.checked;
+      
+      if (isChecked) {
+        selectedSlides.push(slideNum);
+      }
+      
+      // Enable/disable timing control
+      if (timingItems[index]) {
+        if (isChecked) {
+          timingItems[index].classList.remove('disabled');
+        } else {
+          timingItems[index].classList.add('disabled');
+        }
+      }
+      
+      // Enable/disable start page radio
+      if (startPageRadios[index]) {
+        startPageRadios[index].disabled = !isChecked;
+        const parentItem = startPageRadios[index].closest('.checkbox-item');
+        if (parentItem) {
+          if (isChecked) {
+            parentItem.style.opacity = '1';
+            parentItem.style.pointerEvents = 'auto';
+          } else {
+            parentItem.style.opacity = '0.4';
+            parentItem.style.pointerEvents = 'none';
+          }
+        }
+      }
+    });
+    
+    // Ensure at least one slide is selected
+    if (selectedSlides.length === 0) {
+      includeCheckboxes[0].checked = true;
+      return updateControls();
+    }
+    
+    // Make sure a selected slide is chosen as start page
+    const currentStart = document.querySelector('input[name="startPage"]:checked');
+    if (currentStart && currentStart.disabled) {
+      // Find first enabled start page option
+      const firstEnabled = startPageRadios.find(radio => !radio.disabled);
+      if (firstEnabled) {
+        firstEnabled.checked = true;
+      }
+    }
+    
+    updateUrl();
+  }
+  
   // Update slider value displays
   delaySliders.forEach((slider, index) => {
     slider.addEventListener('input', function() {
@@ -525,19 +628,31 @@ title: "The Gelato & Icecream Factory - URL Builder"
     radio.addEventListener('change', updateUrl);
   });
   
+  // Update when slide selection changes
+  includeCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', updateControls);
+  });
+  
   // Function to generate URL
   function updateUrl() {
     // Get starting page
     const startPage = parseInt(document.querySelector('input[name="startPage"]:checked').value);
     
-    // Build transition times array for all 4 pages
+    // Build list of selected slides and their transition times
+    const selectedSlides = [];
     const transitionTimes = [];
-    for (let i = 0; i < 4; i++) {
-      transitionTimes.push(delaySliders[i].value);
-    }
+    
+    includeCheckboxes.forEach((checkbox, index) => {
+      if (checkbox.checked) {
+        const slideNum = 5 + index;
+        selectedSlides.push(slideNum);
+        transitionTimes.push(delaySliders[index].value);
+      }
+    });
     
     // Build URL
     const url = new URL(baseUrl + '/' + startPage + '.html');
+    url.searchParams.set('slides', selectedSlides.join(','));
     url.searchParams.set('transition', transitionTimes.join(','));
     
     if (kioskMode.checked) {
@@ -583,5 +698,5 @@ title: "The Gelato & Icecream Factory - URL Builder"
   });
   
   // Initialize
-  updateUrl();
+  updateControls();
 </script>
