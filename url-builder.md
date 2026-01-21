@@ -153,11 +153,6 @@ title: "The Gelato & Icecream Factory - URL Builder"
     border-radius: 12px;
   }
   
-  .timing-item.disabled {
-    opacity: 0.5;
-    pointer-events: none;
-  }
-  
   .timing-header {
     font-size: 1.4em;
     font-weight: bold;
@@ -369,40 +364,14 @@ title: "The Gelato & Icecream Factory - URL Builder"
 <div class="container">
   <h1 class="page-title">🔗 URL Builder 🔗</h1>
   <p class="subtitle">
-    Build custom URLs for your menu slideshow! Select which screens to show, set timing, and more!
+    Build custom URLs for your menu slideshow! Configure timing, starting page, and display options!
   </p>
-  
-  <div class="builder-section">
-    <h2 class="section-header">📺 Screen Selection</h2>
-    <div class="form-group">
-      <label class="form-label">Which menu screens do you want to display?</label>
-      <p class="help-text">Select the screens you want to include in your rotation</p>
-      <div class="checkbox-group">
-        <div class="checkbox-item">
-          <input type="checkbox" id="page5" value="5" checked>
-          <label for="page5">🖼️ Menu Image 1</label>
-        </div>
-        <div class="checkbox-item">
-          <input type="checkbox" id="page6" value="6" checked>
-          <label for="page6">🖼️ Menu Image 2</label>
-        </div>
-        <div class="checkbox-item">
-          <input type="checkbox" id="page7" value="7" checked>
-          <label for="page7">🖼️ Menu Image 3</label>
-        </div>
-        <div class="checkbox-item">
-          <input type="checkbox" id="page8" value="8" checked>
-          <label for="page8">🖼️ Menu Image 4</label>
-        </div>
-      </div>
-    </div>
-  </div>
   
   <div class="builder-section">
     <h2 class="section-header">⏱️ Timing Settings</h2>
     <div class="form-group">
       <label class="form-label">How long should each screen display? (in seconds)</label>
-      <p class="help-text">Adjust the timing for each selected screen</p>
+      <p class="help-text">The slideshow rotates through all 4 menu images in order</p>
       <div class="timing-controls">
         <div class="timing-item" id="timing5">
           <div class="timing-header">🖼️ Menu Image 1</div>
@@ -501,13 +470,6 @@ title: "The Gelato & Icecream Factory - URL Builder"
   const baseUrl = window.location.origin + '{{ site.baseurl }}';
   
   // Get all form elements
-  const pageCheckboxes = [
-    document.getElementById('page5'),
-    document.getElementById('page6'),
-    document.getElementById('page7'),
-    document.getElementById('page8')
-  ];
-  
   const delaySliders = [
     document.getElementById('delay5'),
     document.getElementById('delay6'),
@@ -520,13 +482,6 @@ title: "The Gelato & Icecream Factory - URL Builder"
     document.getElementById('value6'),
     document.getElementById('value7'),
     document.getElementById('value8')
-  ];
-  
-  const timingItems = [
-    document.getElementById('timing5'),
-    document.getElementById('timing6'),
-    document.getElementById('timing7'),
-    document.getElementById('timing8')
   ];
   
   const startPageRadios = [
@@ -557,76 +512,17 @@ title: "The Gelato & Icecream Factory - URL Builder"
     updateUrl();
   });
   
-  // Update timing item states when checkboxes change
-  pageCheckboxes.forEach((checkbox, index) => {
-    checkbox.addEventListener('change', function() {
-      if (this.checked) {
-        timingItems[index].classList.remove('disabled');
-      } else {
-        timingItems[index].classList.add('disabled');
-      }
-      
-      // Ensure at least one page is selected
-      const anyChecked = pageCheckboxes.some(cb => cb.checked);
-      if (!anyChecked) {
-        this.checked = true;
-        timingItems[index].classList.remove('disabled');
-      }
-      
-      // Update start page options
-      updateStartPageOptions();
-      updateUrl();
-    });
-  });
-  
   // Update start page when radio changes
   startPageRadios.forEach(radio => {
     radio.addEventListener('change', updateUrl);
   });
   
-  // Function to update available start page options
-  function updateStartPageOptions() {
-    startPageRadios.forEach((radio, index) => {
-      const checkbox = pageCheckboxes[index];
-      const checkboxItem = radio.closest('.checkbox-item');
-      
-      if (!checkbox.checked) {
-        radio.disabled = true;
-        checkboxItem.style.opacity = '0.5';
-        checkboxItem.style.pointerEvents = 'none';
-        
-        // If this was selected, select the first available one
-        if (radio.checked) {
-          const firstAvailable = startPageRadios.find((r, i) => pageCheckboxes[i].checked);
-          if (firstAvailable) {
-            firstAvailable.checked = true;
-          }
-        }
-      } else {
-        radio.disabled = false;
-        checkboxItem.style.opacity = '1';
-        checkboxItem.style.pointerEvents = 'auto';
-      }
-    });
-  }
-  
   // Function to generate URL
   function updateUrl() {
-    // Get selected pages
-    const selectedPages = pageCheckboxes
-      .map((cb, i) => cb.checked ? (i + 5) : null)
-      .filter(p => p !== null);
-    
-    if (selectedPages.length === 0) {
-      urlPreview.textContent = 'Please select at least one screen';
-      openBtn.href = '#';
-      return;
-    }
-    
     // Get starting page
     const startPage = parseInt(document.querySelector('input[name="startPage"]:checked').value);
     
-    // Build transition times array (only for selected pages in order 5,6,7,8)
+    // Build transition times array for all 4 pages
     const transitionTimes = [];
     for (let i = 0; i < 4; i++) {
       transitionTimes.push(delaySliders[i].value);
@@ -648,10 +544,6 @@ title: "The Gelato & Icecream Factory - URL Builder"
   // Copy to clipboard
   copyBtn.addEventListener('click', function() {
     const url = urlPreview.textContent;
-    
-    if (url === 'Please select at least one screen') {
-      return;
-    }
     
     // Copy to clipboard
     navigator.clipboard.writeText(url).then(function() {
@@ -683,6 +575,5 @@ title: "The Gelato & Icecream Factory - URL Builder"
   });
   
   // Initialize
-  updateStartPageOptions();
   updateUrl();
 </script>
