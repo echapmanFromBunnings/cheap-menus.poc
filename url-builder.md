@@ -285,7 +285,6 @@ title: "The Gelato & Icecream Factory - URL Builder"
   .url-preview a {
     color: #FFE8E8;
     text-decoration: underline;
-    cursor: pointer;
   }
   
   .url-preview a:hover {
@@ -732,7 +731,12 @@ title: "The Gelato & Icecream Factory - URL Builder"
     
     // Display URL as clickable link
     const urlString = url.toString();
-    urlPreview.innerHTML = '<a href="' + urlString + '" target="_blank">' + urlString + '</a>';
+    urlPreview.innerHTML = '';
+    const link = document.createElement('a');
+    link.href = urlString;
+    link.target = '_blank';
+    link.textContent = urlString;
+    urlPreview.appendChild(link);
     openBtn.href = urlString;
   }
   
