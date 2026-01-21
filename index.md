@@ -212,48 +212,6 @@ title: "The Gelato & Icecream Factory - Welcome"
   </div>
   
   <h2 style="font-size: 3.5em; color: #4A1F1F; margin: 40px 0 35px 0; text-shadow: 2px 2px 0px #D4A574;">
-    🍨 EXPLORE OUR MENU 🍨
-  </h2>
-  
-  <div class="menu-grid">
-    <a href="{{ site.baseurl }}/1.html" class="menu-card">
-      <div class="menu-number">1</div>
-      <div class="menu-title">Classic Flavors</div>
-      <div class="menu-description">
-        Traditional favorites and timeless treats!
-      </div>
-    </a>
-    
-    <a href="{{ site.baseurl }}/2.html" class="menu-card">
-      <div class="menu-number">2</div>
-      <div class="menu-title">Premium Selections</div>
-      <div class="menu-description">
-        Upscale flavors for discerning tastes!
-      </div>
-    </a>
-    
-    <a href="{{ site.baseurl }}/3.html" class="menu-card">
-      <div class="menu-number">3</div>
-      <div class="menu-title">Specialty Creations</div>
-      <div class="menu-description">
-        Unique and creative combinations!
-      </div>
-    </a>
-    
-    <a href="{{ site.baseurl }}/4.html" class="menu-card">
-      <div class="menu-number">4</div>
-      <div class="menu-title">Ultimate Indulgences</div>
-      <div class="menu-description">
-        Decadent and extraordinary flavors!
-      </div>
-    </a>
-  </div>
-  
-  <div style="margin: 40px 0;">
-    <a href="{{ site.baseurl }}/1.html" class="cta-button">🌟 START YOUR FLAVOR JOURNEY 🌟</a>
-  </div>
-  
-  <h2 style="font-size: 3.5em; color: #4A1F1F; margin: 50px 0 35px 0; text-shadow: 2px 2px 0px #D4A574;">
     📸 FULL MENU IMAGES 📸
   </h2>
   
