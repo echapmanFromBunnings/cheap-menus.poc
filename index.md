@@ -257,6 +257,15 @@ title: "The Gelato & Icecream Factory - Welcome"
     📸 FULL MENU IMAGES 📸
   </h2>
   
+  <div style="margin: 30px 0; text-align: center;">
+    <a href="{{ site.baseurl }}/url-builder.html" class="cta-button" style="font-size: 1.6em; padding: 20px 35px;">
+      🔗 BUILD CUSTOM SLIDESHOW URL 🔗
+    </a>
+    <p style="font-size: 1.3em; color: #4A1F1F; margin-top: 15px; font-style: italic;">
+      Create custom URLs for digital signage with timing controls!
+    </p>
+  </div>
+  
   <div class="menu-grid">
     <a href="{{ site.baseurl }}/5.html" class="menu-card">
       <div class="menu-number">5</div>
