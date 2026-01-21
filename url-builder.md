@@ -133,6 +133,14 @@ title: "The Gelato & Icecream Factory - URL Builder"
     accent-color: #C85A7A;
   }
   
+  .checkbox-item input[type="radio"] {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    cursor: pointer;
+    accent-color: #C85A7A;
+  }
+  
   .checkbox-item label {
     font-size: 1.3em;
     cursor: pointer;
@@ -413,19 +421,19 @@ title: "The Gelato & Icecream Factory - URL Builder"
       <p class="help-text">Choose which screen to show first</p>
       <div class="checkbox-group">
         <div class="checkbox-item">
-          <input type="radio" name="startPage" id="start5" value="5" checked style="width: 24px; height: 24px; margin-right: 12px;">
+          <input type="radio" name="startPage" id="start5" value="5" checked>
           <label for="start5">🖼️ Menu Image 1</label>
         </div>
         <div class="checkbox-item">
-          <input type="radio" name="startPage" id="start6" value="6" style="width: 24px; height: 24px; margin-right: 12px;">
+          <input type="radio" name="startPage" id="start6" value="6">
           <label for="start6">🖼️ Menu Image 2</label>
         </div>
         <div class="checkbox-item">
-          <input type="radio" name="startPage" id="start7" value="7" style="width: 24px; height: 24px; margin-right: 12px;">
+          <input type="radio" name="startPage" id="start7" value="7">
           <label for="start7">🖼️ Menu Image 3</label>
         </div>
         <div class="checkbox-item">
-          <input type="radio" name="startPage" id="start8" value="8" style="width: 24px; height: 24px; margin-right: 12px;">
+          <input type="radio" name="startPage" id="start8" value="8">
           <label for="start8">🖼️ Menu Image 4</label>
         </div>
       </div>
