@@ -510,6 +510,11 @@ title: "The Gelato & Icecream Factory - URL Builder"
   // Get base URL
   const baseUrl = window.location.origin + '{{ site.baseurl }}';
   
+  // Constants
+  const FIRST_SLIDE = 5;
+  const LAST_SLIDE = 8;
+  const NUM_SLIDES = 4;
+  
   // Get all form elements
   const includeCheckboxes = [
     document.getElementById('include5'),
@@ -558,7 +563,7 @@ title: "The Gelato & Icecream Factory - URL Builder"
     const selectedSlides = [];
     
     includeCheckboxes.forEach((checkbox, index) => {
-      const slideNum = 5 + index;
+      const slideNum = FIRST_SLIDE + index;
       const isChecked = checkbox.checked;
       
       if (isChecked) {
@@ -592,8 +597,20 @@ title: "The Gelato & Icecream Factory - URL Builder"
     
     // Ensure at least one slide is selected
     if (selectedSlides.length === 0) {
+      // Prevent recursion by checking directly instead of calling updateControls again
       includeCheckboxes[0].checked = true;
-      return updateControls();
+      selectedSlides.push(FIRST_SLIDE);
+      if (timingItems[0]) {
+        timingItems[0].classList.remove('disabled');
+      }
+      if (startPageRadios[0]) {
+        startPageRadios[0].disabled = false;
+        const parentItem = startPageRadios[0].closest('.checkbox-item');
+        if (parentItem) {
+          parentItem.style.opacity = '1';
+          parentItem.style.pointerEvents = 'auto';
+        }
+      }
     }
     
     // Make sure a selected slide is chosen as start page
@@ -644,7 +661,7 @@ title: "The Gelato & Icecream Factory - URL Builder"
     
     includeCheckboxes.forEach((checkbox, index) => {
       if (checkbox.checked) {
-        const slideNum = 5 + index;
+        const slideNum = FIRST_SLIDE + index;
         selectedSlides.push(slideNum);
         transitionTimes.push(delaySliders[index].value);
       }
