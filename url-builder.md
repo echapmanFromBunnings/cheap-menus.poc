@@ -473,6 +473,29 @@ title: "The Gelato & Icecream Factory - URL Builder"
     </div>
     
     <div class="form-group">
+      <label class="form-label">Image Rotation</label>
+      <p class="help-text">Set the default rotation for all menu images</p>
+      <div class="checkbox-group">
+        <div class="checkbox-item">
+          <input type="radio" name="rotation" id="rotate0" value="0" checked>
+          <label for="rotate0">🔄 0° (Normal)</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="radio" name="rotation" id="rotate90" value="90">
+          <label for="rotate90">🔄 90° (Clockwise)</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="radio" name="rotation" id="rotate180" value="180">
+          <label for="rotate180">🔄 180° (Upside Down)</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="radio" name="rotation" id="rotate270" value="270">
+          <label for="rotate270">🔄 270° (Counter-clockwise)</label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
       <label class="form-label">Kiosk Mode</label>
       <p class="help-text">Hide all controls for a clean display (perfect for digital signage!)</p>
       <div class="toggle-switch">
@@ -549,6 +572,13 @@ title: "The Gelato & Icecream Factory - URL Builder"
     document.getElementById('start6'),
     document.getElementById('start7'),
     document.getElementById('start8')
+  ];
+  
+  const rotationRadios = [
+    document.getElementById('rotate0'),
+    document.getElementById('rotate90'),
+    document.getElementById('rotate180'),
+    document.getElementById('rotate270')
   ];
   
   const kioskMode = document.getElementById('kioskMode');
@@ -645,6 +675,11 @@ title: "The Gelato & Icecream Factory - URL Builder"
     radio.addEventListener('change', updateUrl);
   });
   
+  // Update rotation when radio changes
+  rotationRadios.forEach(radio => {
+    radio.addEventListener('change', updateUrl);
+  });
+  
   // Update when slide selection changes
   includeCheckboxes.forEach(checkbox => {
     checkbox.addEventListener('change', updateControls);
@@ -654,6 +689,9 @@ title: "The Gelato & Icecream Factory - URL Builder"
   function updateUrl() {
     // Get starting page
     const startPage = parseInt(document.querySelector('input[name="startPage"]:checked').value);
+    
+    // Get rotation value
+    const rotation = parseInt(document.querySelector('input[name="rotation"]:checked').value);
     
     // Build list of selected slides and their transition times
     const selectedSlides = [];
@@ -671,6 +709,11 @@ title: "The Gelato & Icecream Factory - URL Builder"
     const url = new URL(baseUrl + '/' + startPage + '.html');
     url.searchParams.set('slides', selectedSlides.join(','));
     url.searchParams.set('transition', transitionTimes.join(','));
+    
+    // Add rotation parameter if not 0
+    if (rotation !== 0) {
+      url.searchParams.set('rotation', rotation.toString());
+    }
     
     if (kioskMode.checked) {
       url.searchParams.set('kiosk', 'true');
