@@ -4,6 +4,16 @@ title: "The Gelato & Icecream Factory - Welcome"
 ---
 
 <style>
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+  
   body {
     background: repeating-linear-gradient(
       0deg,
@@ -25,6 +35,7 @@ title: "The Gelato & Icecream Factory - Welcome"
     padding: 40px 50px 30px 50px;
     border-bottom: 5px solid #4A1F1F;
     background: #FFF5E6;
+    width: 100%;
   }
   
   .logo-header img {
@@ -40,6 +51,7 @@ title: "The Gelato & Icecream Factory - Welcome"
     background: #FFF5E6;
     padding: 50px;
     text-align: center;
+    width: 100%;
   }
   
   .tagline {
