@@ -282,6 +282,17 @@ title: "The Gelato & Icecream Factory - URL Builder"
     border: 4px solid #D4A574;
   }
   
+  .url-preview a {
+    color: #FFE8E8;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .url-preview a:hover {
+    color: #FFD5D5;
+    text-decoration: underline;
+  }
+  
   .action-buttons {
     display: flex;
     gap: 20px;
@@ -719,14 +730,15 @@ title: "The Gelato & Icecream Factory - URL Builder"
       url.searchParams.set('kiosk', 'true');
     }
     
-    // Display URL
-    urlPreview.textContent = url.toString();
-    openBtn.href = url.toString();
+    // Display URL as clickable link
+    const urlString = url.toString();
+    urlPreview.innerHTML = '<a href="' + urlString + '" target="_blank">' + urlString + '</a>';
+    openBtn.href = urlString;
   }
   
   // Copy to clipboard
   copyBtn.addEventListener('click', function() {
-    const url = urlPreview.textContent;
+    const url = urlPreview.querySelector('a') ? urlPreview.querySelector('a').textContent : urlPreview.textContent;
     
     // Copy to clipboard
     navigator.clipboard.writeText(url).then(function() {
